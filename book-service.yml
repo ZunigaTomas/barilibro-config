@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: book-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/bookstore
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic: books_topic

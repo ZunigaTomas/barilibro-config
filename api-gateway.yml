@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/books/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+        - id: purchase-service
+          uri: lb://purchase-service
+          predicates:
+            - Path=/purchases/**
+    discovery:
+      enabled: true
+      locator:
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
