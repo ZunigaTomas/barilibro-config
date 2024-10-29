@@ -6,11 +6,9 @@ spring:
     name: user-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/bookstore
-  kafka:
-    bootstrap-servers: localhost:9092
-    topic: users_topic
+      uri: ${MONGODB_BARILIBRO_URI}
+
 security:
   jwt:
-    secret: mySecretKey
-    expiration: 86400000  # 1 día en milisegundos
+    secret: ${JWT_SECRET_BARILIBRO}
+    expiration: 86400000
