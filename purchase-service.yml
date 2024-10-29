@@ -6,7 +6,9 @@ spring:
     name: purchase-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/bookstore
-  kafka:
-    bootstrap-servers: localhost:9092
-    topic: purchases_topic
+      uri: ${MONGODB_BARILIBRO_URI}
+
+security:
+  jwt:
+    secret: ${JWT_SECRET_BARILIBRO}
+    expiration: 86400000
